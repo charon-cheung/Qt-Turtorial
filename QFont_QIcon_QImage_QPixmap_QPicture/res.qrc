@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/Icon">
+        <file>img/cloud.png</file>
+        <file>img/cmake.png</file>
+        <file>img/ibus.png</file>
+    </qresource>
+</RCC>
