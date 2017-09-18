@@ -30,7 +30,7 @@
       <x>190</x>
       <y>310</y>
       <width>75</width>
-      <height>23</height>
+      <height>25</height>
      </rect>
     </property>
     <property name="text">
@@ -40,7 +40,7 @@
    <widget class="QPushButton" name="brushBtn">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>490</x>
       <y>310</y>
       <width>75</width>
       <height>23</height>
@@ -48,6 +48,32 @@
     </property>
     <property name="text">
      <string>brush</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lighter">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>310</y>
+      <width>101</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>lighter color</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="darker">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>310</y>
+      <width>101</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>darker color</string>
     </property>
    </widget>
   </widget>

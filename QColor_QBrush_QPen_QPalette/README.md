@@ -1,3 +1,10 @@
+##<center>QColor</center>
+QColor QColor::darker(int factor = 200) const
+&emsp;&emsp;如果factor大于100，返回一个更深的颜色，但不改变颜色对象。低于100为更浅的颜色，但提倡使用lighter()函数。
+
+QColor QColor::lighter(int factor = 150) const
+&emsp;&emsp;如果factor大于100，返回一个更浅的颜色，但不改变颜色对象。低于100为更深的颜色，但提倡使用darker()函数。
+
 ##<center>QPalette<center>
 
 &emsp;&emsp;QPalette类相当于对话框或控件的调色板，它管理着控件或窗体的所有颜色信息，每个窗体或控件都包含一个QPalette对象，在显示时按照它的QPalette对象中对各部分各状态下的颜色的描述来进行绘制。

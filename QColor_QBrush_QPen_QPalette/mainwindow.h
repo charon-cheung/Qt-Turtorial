@@ -23,6 +23,10 @@ private slots:
 
     void on_brushBtn_clicked();
 
+    void on_lighter_clicked();
+
+    void on_darker_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene* scene;

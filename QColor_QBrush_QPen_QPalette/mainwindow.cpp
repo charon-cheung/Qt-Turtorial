@@ -27,13 +27,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_penBtn_clicked()
 {
     // 两种常用的定义QColor方式
-    p.setColor(QColor(Qt::yellow));
-//    p.setColor(QColor(122,103,238));   //rgb 赋值
+//    p.setColor(QColor(Qt::yellow));
+    p.setColor(QColor(122,103,238));   //rgb 赋值
     p.setStyle(Qt::DashLine);   // 样式, 类型Qt::PenStyle
     p.setWidthF(3.5);
     rect->setPen(p);
-
-
 }
 
 void MainWindow::on_brushBtn_clicked()
@@ -41,4 +39,20 @@ void MainWindow::on_brushBtn_clicked()
     b.setColor(QColor(122,103,238));
     b.setStyle(Qt::CrossPattern);   // 填充风格, 类型Qt::BrushStyle
     rect->setBrush(b);
+}
+
+void MainWindow::on_lighter_clicked()
+{
+    p.setColor(QColor(122,103,238).lighter(150));   //rgb 赋值
+    p.setStyle(Qt::DashLine);   // 样式, 类型Qt::PenStyle
+    p.setWidthF(3.5);
+    rect->setPen(p);
+}
+
+void MainWindow::on_darker_clicked()
+{
+    p.setColor(QColor(122,103,238).darker(150));   //rgb 赋值
+    p.setStyle(Qt::DashLine);   // 样式, 类型Qt::PenStyle
+    p.setWidthF(3.5);
+    rect->setPen(p);
 }
