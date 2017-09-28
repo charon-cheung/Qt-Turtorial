@@ -17,7 +17,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QDateTime time = QDateTime::fromString(str, "yyyy-MM-dd hh:mm:ss");
     //output: QDateTime(2012-07-02 17:35:00.000 中国标准时间 Qt::TimeSpec(LocalTime))
     // 格式必须对应
-    qDebug()<< time;
+    qDebug()<<"time is "<< time;
+    time.setTime_t(0);      // set the time since UTC time, parameter is seconds
+    qDebug()<<"new time is "<< time;
     qDebug()<< "Epoch time:"<<time.toSecsSinceEpoch();     // seconds elapsed since 1970-1-1-00:00:00
     QDateTime newDate = time.addYears(5);   // time doesn't change
     qDebug()<<"new date:"<<newDate.toString();
