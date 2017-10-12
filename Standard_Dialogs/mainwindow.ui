@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>592</width>
-    <height>423</height>
+    <width>594</width>
+    <height>425</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,10 @@
   <property name="styleSheet">
    <string notr="true">QPushButton
 {
-	width: 108px;
-	height:40px;
+	width: 155px;
+	height:52px;
+font-size: 16pt;
+font-family: Inconsolata;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -32,7 +34,9 @@
         <property name="font">
          <font>
           <family>Inconsolata</family>
-          <pointsize>14</pointsize>
+          <pointsize>16</pointsize>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
          </font>
         </property>
         <property name="text">
@@ -45,7 +49,9 @@
         <property name="font">
          <font>
           <family>Inconsolata</family>
-          <pointsize>14</pointsize>
+          <pointsize>16</pointsize>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
          </font>
         </property>
         <property name="text">
@@ -54,9 +60,17 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="QFontDialog">
+        <property name="font">
+         <font>
+          <family>Inconsolata</family>
+          <pointsize>16</pointsize>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
+         </font>
+        </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>QFontDialog</string>
         </property>
        </widget>
       </item>
@@ -68,23 +82,23 @@
        <number>80</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="QProgressDialog">
         <property name="text">
-         <string>PushButton</string>
+         <string>QProgressDialog</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="QWizard">
         <property name="text">
-         <string>PushButton</string>
+         <string>QWizard</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="QFileDialog">
         <property name="text">
-         <string>PushButton</string>
+         <string>QFileDialog</string>
         </property>
        </widget>
       </item>
@@ -97,7 +111,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>592</width>
+     <width>594</width>
      <height>23</height>
     </rect>
    </property>

@@ -20,6 +20,10 @@ private slots:
 
     void on_QInputDialog_clicked();
 
+    void on_QFontDialog_clicked();
+
+    void on_QProgressDialog_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
