@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     _QDate();
     _QTimeZone();
     _QTime();
+
 }
 
 MainWindow::~MainWindow()
@@ -77,4 +78,62 @@ void MainWindow::_QTime()
     for(int i=0; i<100000000;i++)
         a+=i;
     qDebug()<<"time elapsed:"<<t.elapsed()<<" ms";      // 275 ms
+}
+
+bool MainWindow::hasFeb29(QDateTime min, QDateTime max)
+{
+    if(max.toTime_t()<min.toTime_t())
+        return false;
+    int minYear = min.date().year();
+    int maxYear = max.date().year();
+
+    if(minYear == maxYear)
+    {
+        if(!QDate::isLeapYear(minYear))     // Æ½Äê
+            return false;
+        else
+        {
+            if(max.secsTo(QDateTime(QDate(minYear,2,29),QTime(0,0,0))) >=0 || min.secsTo(QDateTime(QDate(minYear,3,1),QTime(0,0,0))) <=0)
+                return false;
+            else
+                return true;
+        }
+    }
+    else
+    {
+        if(!QDate::isLeapYear(minYear) && !QDate::isLeapYear(maxYear))
+        {
+            int n = maxYear - minYear;
+            for(int a=minYear+1; a<minYear+n; a++)
+            {
+                if(QDate::isLeapYear(a))
+                {
+                    return true;
+                }
+            }
+        }
+        else if(!QDate::isLeapYear(minYear) &&  QDate::isLeapYear(maxYear))
+        {
+            if(max.secsTo(QDateTime(QDate(maxYear,2,29),QTime(0,0,0)))<0 )
+                return true;
+            else return false;
+        }
+        else if(QDate::isLeapYear(minYear) && !QDate::isLeapYear(maxYear))
+        {
+            if(min.secsTo(QDateTime(QDate(minYear,3,1),QTime(0,0,0)))>0 )
+                return true;
+            else return false;
+        }
+        else if(QDate::isLeapYear(minYear) && QDate::isLeapYear(maxYear))
+        {
+            if(max.secsTo(QDateTime(QDate(maxYear,2,29),QTime(0,0,0)))>0 && min.secsTo(QDateTime(QDate(minYear,3,1),QTime(0,0,0)))<=0)
+                return false;
+            else return true;
+        }
+    }
+}
+
+void MainWindow::on_btn_clicked()
+{
+    qDebug()<< hasFeb29(ui->min->dateTime(), ui->max->dateTime())<<qrand()%100;
 }
