@@ -1,0 +1,1 @@
+The two classes can print important info of system and Qt environment
