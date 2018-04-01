@@ -9,7 +9,6 @@ namespace Ui {
 class MainWindow;
 }
 
-
 class Thread_1 : public QThread
 {
 public:             // 不指定作用域则默认为private
