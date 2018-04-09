@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>627</width>
-    <height>552</height>
+    <width>545</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QToolButton" name="open_file">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>120</y>
+      <x>210</x>
+      <y>110</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -30,7 +30,7 @@
    <widget class="QPushButton" name="entryInfo">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>360</x>
       <y>280</y>
       <width>121</width>
       <height>51</height>
@@ -44,7 +44,7 @@
    <widget class="QToolButton" name="open_dir">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>210</x>
       <y>290</y>
       <width>81</width>
       <height>31</height>
@@ -57,8 +57,8 @@
    <widget class="QPushButton" name="rename">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>120</y>
+      <x>360</x>
+      <y>110</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -70,8 +70,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>120</y>
+      <x>100</x>
+      <y>110</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -83,8 +83,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>280</y>
+      <x>100</x>
+      <y>290</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -93,19 +93,33 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;选目录&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="readFile">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>190</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>读文件</string>
+    </property>
+   </widget>
    <zorder>entryInfo</zorder>
    <zorder>open_file</zorder>
    <zorder>open_dir</zorder>
    <zorder>rename</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
+   <zorder>readFile</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>627</width>
+     <width>545</width>
      <height>32</height>
     </rect>
    </property>

@@ -28,6 +28,8 @@ private slots:
 
     void on_rename_clicked();
 
+    void on_readFile_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString filePath,dirPath;

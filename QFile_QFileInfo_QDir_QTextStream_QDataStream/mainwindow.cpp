@@ -48,8 +48,9 @@ void MainWindow::on_rename_clicked()
         return;
     QString newName = QInputDialog::getText(this,"Input new name","name",QLineEdit::Normal,
                                             "Input");
-//  用rename(const QString &newName);会将文件移到build文件夹
+//  用rename(const QString &newName);会将文件移到build文件夹; 常用以下两种方法
     bool ret = QFile::rename(fInfo.absoluteFilePath(),fInfo.absolutePath()+"/"+newName+"."+fInfo.suffix());
+//    bool ret = dir.rename(fInfo.absoluteFilePath(),fInfo.absolutePath()+"/"+newName+"."+fInfo.suffix());
     if(!ret)
         qDebug()<<"重命名失败!";
 }
@@ -67,6 +68,20 @@ void MainWindow::on_entryInfo_clicked()
     dir.mkdir("New_Dir");       // bool
     dir.cd("New_Dir");          // bool,改变QDir::path()
     qDebug()<<"current path"<<dir.path();
-    dir.cd("..");
-    dir.rmdir("New_Dir");
+    dir.cd("..");               // 返回上一层
+    dir.rmdir("New_Dir");       // 删除New_Dir文件夹
+}
+
+void MainWindow::on_readFile_clicked()
+{
+    if(filePath.isEmpty() || !file.exists())
+        return;
+    if(!file.open(QIODevice::ReadOnly))
+        qDebug()<<"Open file failed !";
+    QTextStream stream(&file);
+    while(!stream.atEnd())
+    {
+        qDebug()<<stream.readLine();
+    }
+
 }
