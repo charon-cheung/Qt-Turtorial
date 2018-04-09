@@ -1,0 +1,1 @@
+## The use of Qt's Concurrent module
