@@ -96,6 +96,7 @@ unsigned int MainWindow::GetCountBySingleThread(QStringList files)
 
 unsigned int MainWindow::GetCountByConcurrent(QStringList files)
 {
+    //NOTE:不能用blocking,否则返回的是序列QStringList
     QFuture<unsigned int> future = QtConcurrent::mappedReduced(files,&MainWindow::mappedFile,&MainWindow::reduced);
     return future.result();
 }
