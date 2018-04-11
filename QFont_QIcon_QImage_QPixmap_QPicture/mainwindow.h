@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -19,6 +19,8 @@ private slots:
     void on_fontPicker_clicked();
 
     void on_getFont_clicked();
+
+    void on_zoomIn_clicked();
 
 private:
     Ui::MainWindow *ui;

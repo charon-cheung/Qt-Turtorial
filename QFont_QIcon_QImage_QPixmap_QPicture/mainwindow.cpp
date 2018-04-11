@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QFontDialog>
 #include <QPicture>
@@ -65,4 +65,12 @@ QFont MainWindow::getFont()
 void MainWindow::on_getFont_clicked()
 {
     ui->txtLabel->setFont(getFont());
+}
+
+void MainWindow::on_zoomIn_clicked()
+{
+    QPixmap cloud = ui->pixLabel->pixmap()->scaled(200,200);
+    QPixmap ibus = ui->imageLabel->pixmap()->scaled(200,200);
+    ui->pixLabel->setPixmap(cloud);
+    ui->imageLabel->setPixmap(ibus);
 }
