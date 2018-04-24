@@ -6,32 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>545</width>
-    <height>487</height>
+    <width>547</width>
+    <height>489</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QToolButton" name="open_file">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>110</y>
-      <width>81</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="entryInfo">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>280</y>
+      <x>340</x>
+      <y>190</y>
       <width>121</width>
       <height>51</height>
      </rect>
@@ -41,24 +28,11 @@
 的文件</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="open_dir">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>290</y>
-      <width>81</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="rename">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>110</y>
+      <x>340</x>
+      <y>20</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -70,8 +44,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>110</y>
+      <x>80</x>
+      <y>20</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -83,8 +57,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>290</y>
+      <x>80</x>
+      <y>200</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -96,8 +70,8 @@
    <widget class="QPushButton" name="readFile">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>190</y>
+      <x>180</x>
+      <y>100</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -106,20 +80,26 @@
      <string>读文件</string>
     </property>
    </widget>
-   <zorder>entryInfo</zorder>
-   <zorder>open_file</zorder>
-   <zorder>open_dir</zorder>
-   <zorder>rename</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>readFile</zorder>
+   <widget class="QPushButton" name="deleteDir">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>330</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>递归删除目录</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>545</width>
+     <width>547</width>
      <height>32</height>
     </rect>
    </property>

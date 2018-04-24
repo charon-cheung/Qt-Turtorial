@@ -83,5 +83,13 @@ void MainWindow::on_readFile_clicked()
     {
         qDebug()<<stream.readLine();
     }
+}
 
+void MainWindow::on_deleteDir_clicked()
+{
+    QString dirPath = QFileDialog::getExistingDirectory(this,QStringLiteral("选择需要删除的目录"),"D:/recursive");
+    QDir d;
+    d.setPath(dirPath);
+    if(!d.removeRecursively())
+        qDebug()<<QStringLiteral("删除目录失败");
 }

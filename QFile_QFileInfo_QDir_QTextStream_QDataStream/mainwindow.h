@@ -30,6 +30,8 @@ private slots:
 
     void on_readFile_clicked();
 
+    void on_deleteDir_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString filePath,dirPath;

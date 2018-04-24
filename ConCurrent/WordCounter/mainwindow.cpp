@@ -1,15 +1,15 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTime>
-#include <QDebug>
 #include <QFileDialog>
-
+#include <QMouseEvent>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    this->setWindowFlags(Qt::FramelessWindowHint);
+    m_pressed = false;
 }
 
 MainWindow::~MainWindow()
@@ -127,4 +127,68 @@ void MainWindow::reduced(unsigned int &result, const unsigned int &interm)
 {
     result+=interm;
     return;
+}
+//自定义边框栏
+void MainWindow::paintEvent(QPaintEvent *e)
+{
+    Q_UNUSED(e);
+    QPainter* p = new QPainter(this);
+    p->setBrush(QBrush(QColor(255,255,255)));
+    p->drawRect(QRect(0,0,600,45));
+    p->setPen(QColor(240,240,240));
+    p->drawLine(QLine(QPoint(0,45),QPoint(600,45)));
+    p->drawLine(QLine(QPoint(0,0),QPoint(0,45)));
+    p->drawLine(QLine(QPoint(0,0),QPoint(600,0)));
+    p->drawLine(QLine(QPoint(600,45),QPoint(600,0)));
+    p->end();
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *e)
+{
+    if(e->button()==Qt::LeftButton)
+    {
+        m_pressed = true;
+        startPos = e->pos();
+        if(startPos.y()>45)
+            return;
+    }
+    return QMainWindow::mousePressEvent(e);
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *e)
+{
+    if(!m_pressed || startPos.y()>45)
+        return;
+    int x = this->x()+e->pos().x()-startPos.x();
+    int y = this->y()+e->pos().y()-startPos.y();
+    this->move(x,y);
+}
+
+void MainWindow::on_btn_clicked()
+{
+    QTime t;
+    t.start();
+    while(t.elapsed()<5000)
+        QApplication::processEvents();
+    qDebug()<<"time";
+}
+
+void MainWindow::on_radioButton_clicked()
+{
+    qDebug("radio");
+}
+
+void MainWindow::on_min_clicked()
+{
+    this->setWindowState(Qt::WindowMinimized);
+}
+
+void MainWindow::on_max_clicked()
+{
+    this->setWindowState(Qt::WindowMaximized);
+}
+
+void MainWindow::on_close_clicked()
+{
+    qApp->quit();
 }

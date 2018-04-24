@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    const QString& aa="aa";
+    QString const& bb = "bb";
     t1 = new Thread_1();
     t2 = new Thread_2();
     connect(t2, SIGNAL(MsgSig(int)),this,SLOT(ShowMsg(int)),Qt::QueuedConnection);
@@ -81,7 +83,6 @@ void Thread_2::run()
         qDebug()<<"thread 2:"<<buffer;
         int size = buffer.size();
         emit MsgSig(buffer.at(size-1));
-        qDebug()<<"emit value:"<<value;
         freeBytes.release();
     }
 }
