@@ -164,15 +164,6 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
     this->move(x,y);
 }
 
-void MainWindow::on_btn_clicked()
-{
-    QTime t;
-    t.start();
-    while(t.elapsed()<5000)
-        QApplication::processEvents();
-    qDebug()<<"time";
-}
-
 void MainWindow::on_radioButton_clicked()
 {
     qDebug("radio");
@@ -185,7 +176,14 @@ void MainWindow::on_min_clicked()
 
 void MainWindow::on_max_clicked()
 {
-    this->setWindowState(Qt::WindowMaximized);
+    if(this->windowState() & Qt::WindowMaximized)
+    {
+        qDebug()<<"maxed!";
+    }
+    else
+    {
+        this->setWindowState(Qt::WindowMaximized);
+    }
 }
 
 void MainWindow::on_close_clicked()

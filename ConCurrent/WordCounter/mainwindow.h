@@ -26,7 +26,6 @@ private slots:
     void on_pushButton_clicked();
 
     void on_toolButton_clicked();
-    void on_btn_clicked();
 
     void on_radioButton_clicked();
 

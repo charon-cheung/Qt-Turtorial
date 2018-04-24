@@ -53,19 +53,6 @@
      <string>RadioButton</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>120</y>
-      <width>108</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
