@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-04-24T09:16:13
+# Project created by QtCreator 2018-04-04T22:01:12
 #
 #-------------------------------------------------
 
@@ -8,9 +8,12 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = CustomFrameWindow
+TARGET = Thread_invokeMethod
 TEMPLATE = app
+CONFIG  += console
 
+target.path = $$[QT_INSTALL_EXAMPLES]/widgets/animation/moveblocks
+INSTALLS += target
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -26,14 +29,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    myevent.cpp \
+    xthread.cpp
 
 HEADERS += \
         mainwindow.h \
-    myevent.h \
+    xthread.h
 
 FORMS += \
         mainwindow.ui
-
-RESOURCES += \
-    pic.qrc

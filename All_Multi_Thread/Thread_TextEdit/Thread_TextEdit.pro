@@ -1,16 +1,16 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-11-28T20:05:33
-#
+# Project created by QtCreator 2018-04-03T20:03:42
+# 根据公孙二狗的文章编写：http://qtdebug.com/qtbook-thread-inheritance/
 #-------------------------------------------------
 
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = DragWindowWithMouse
+TARGET = Thread_TextEdit
 TEMPLATE = app
-
+CONFIG  += console thread
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    mythread.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    mythread.h
 
 FORMS += \
         mainwindow.ui

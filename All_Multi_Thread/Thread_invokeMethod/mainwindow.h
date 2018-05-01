@@ -1,11 +1,16 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QMouseEvent>
+#include "xthread.h"
+
+//#define ABCD
+
+#ifndef ABCD
 namespace Ui {
 class MainWindow;
 }
+#endif
 
 class MainWindow : public QMainWindow
 {
@@ -14,17 +19,14 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+signals:
+    Q_INVOKABLE void time();
+private slots:
+    Q_INVOKABLE void ShowTime(QString time);
 private:
     Ui::MainWindow *ui;
-    QPoint startTopLeft;
-    QPoint startPos;
-    QPoint movePos;
-
-protected:
-    void mousePressEvent(QMouseEvent* event);
-    void mouseMoveEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
+    XThread* thread;
+    void testAAAAAAAA();
 };
 
 #endif // MAINWINDOW_H

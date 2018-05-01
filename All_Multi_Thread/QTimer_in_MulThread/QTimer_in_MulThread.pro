@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-04-24T09:16:13
+# Project created by QtCreator 2018-04-30T09:48:16
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = CustomFrameWindow
+TARGET = QTimer_in_MulThread
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,14 +26,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    myevent.cpp \
+    myobj.cpp
 
 HEADERS += \
         mainwindow.h \
-    myevent.h \
+    myobj.h
 
 FORMS += \
         mainwindow.ui
-
-RESOURCES += \
-    pic.qrc
