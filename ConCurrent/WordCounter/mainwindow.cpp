@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-
+    qDebug().noquote()<<"jeoirtugegjr";
 }
 
 void MainWindow::on_toolButton_clicked()
