@@ -23,6 +23,7 @@ private:
     QPoint startPos;
     int W,windowWidth;
     int H,windowHeight;
+    void Draw(QPainter* p, int width);
 protected:
     bool event(QEvent *event);
     bool eventFilter(QObject *watched, QEvent *event);

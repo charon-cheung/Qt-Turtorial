@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QDesktopWidget* desk = QApplication::desktop();
     windowWidth = desk->screenGeometry().width();
-
+    windowHeight = desk->availableGeometry().height();
     geo = this->geometry();
     ldGrip = new QSizeGrip(this);
     luGrip = new  QSizeGrip(this);
@@ -41,9 +41,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::Draw(QPainter* p, int width)
+{
+    p->setBrush(QBrush(QColor(255,255,255)));
+    p->drawRect(QRect(0,0,width,45));
+    p->setPen(QColor(240,240,240));
+    p->drawLine(QLine(QPoint(0,45),QPoint(width,45)));
+    p->drawLine(QLine(QPoint(0,0),QPoint(0,45)));
+    p->drawLine(QLine(QPoint(0,0),QPoint(width,0)));
+    p->drawLine(QLine(QPoint(width,45),QPoint(width,0)));
+    p->setBrush(QBrush(QColor(0,0,0)));
+    p->setPen(QColor(0,0,0));
+    p->setFont(QFont("New Roman",11));
+    p->drawText(QPointF(26,27),this->objectName());
+    p->end();
+}
+
 bool MainWindow::event(QEvent *event)
 {
-//    qDebug()<<"type:  "<<event->type();
+    //    qDebug()<<"type:  "<<event->type();
     return QMainWindow::event(event);
 }
 //不过滤会导致放缩窗口时，窗口移动，但又不能根据鼠标形状判断
@@ -64,29 +80,10 @@ void MainWindow::paintEvent(QPaintEvent *e)
     QPainter* p = new QPainter(this);
     if(windowState() & Qt::WindowMaximized || windowState() & Qt::WindowFullScreen)
     {
-        p->setBrush(QBrush(QColor(255,255,255)));
-        p->drawRect(QRect(0,0,windowWidth,45));
-        p->setPen(QColor(240,240,240));
-        p->drawLine(QLine(QPoint(0,45),QPoint(windowWidth,45)));
-        p->drawLine(QLine(QPoint(0,0),QPoint(0,45)));
-        p->drawLine(QLine(QPoint(0,0),QPoint(windowWidth,0)));
-        p->drawLine(QLine(QPoint(windowWidth,45),QPoint(windowWidth,0)));
-        p->end();
+        Draw(p,windowWidth);
         return;
     }
-    p->setBrush(QBrush(QColor(255,255,255)));
-    p->drawRect(QRect(0,0,width(),45));
-    p->setPen(QColor(240,240,240));
-    p->drawLine(QLine(QPoint(0,45),QPoint(width(),45)));
-    p->drawLine(QLine(QPoint(0,0),QPoint(0,45)));
-    p->drawLine(QLine(QPoint(0,0),QPoint(width(),0)));
-    p->drawLine(QLine(QPoint(width(),45),QPoint(width(),0)));
-    p->setBrush(QBrush(QColor(0,0,0)));
-    p->setPen(QColor(0,0,0));
-    p->setFont(QFont("New Roman",11));
-    p->drawText(QPointF(26,27),this->objectName());
-    p->end();
-//    qDebug()<<"paint"<<qrand()%100;
+    Draw(p,width());
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *e)
@@ -109,16 +106,6 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
     int x = this->x()+e->pos().x()-startPos.x();
     int y = this->y()+e->pos().y()-startPos.y();
     this->move(x,y);
-//    if(state & Qt::WindowMaximized)
-//    {
-//        this->setWindowState(Qt::WindowNoState);
-//        ui->max->setIcon(QIcon(":/Max.png"));
-//        ui->close->move(W-45,0);
-//        ui->max->move(W-90,0);
-//        ui->min->move(W-135,0);
-//        this->resize(geo.size());
-//        return;
-    //    }
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *e)
@@ -139,7 +126,6 @@ void MainWindow::customEvent(QEvent *event)
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event);
-    qDebug()<<"resize:"<<qrand()%100;
     update();
     ldGrip->move(0,height()-15);
     luGrip->move(0,0);
@@ -152,6 +138,9 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::on_max_clicked()
 {
+    qDebug()<<"max:"<<windowState();
+    qDebug()<<this->size();
+    qDebug()<<windowWidth<<"  "<<windowHeight;
     if(windowState() & Qt::WindowMaximized || windowState() & Qt::WindowFullScreen)
     {
         this->setWindowState(Qt::WindowNoState);
@@ -169,6 +158,7 @@ void MainWindow::on_max_clicked()
         ui->max->move(windowWidth-90,0);
         ui->min->move(windowWidth-135,0);
         repaint();
+        update();
     }
 }
 

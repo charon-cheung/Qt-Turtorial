@@ -3,7 +3,7 @@
 
 ![预览](https://raw.githubusercontent.com/rjosodtssp/Qt-Turtorial/master/CustomFrameWindow/app.png)
 
-本以为很简单，但想做好并不太容易
+本以为很简单，但想做好并不太容易。Dialog可以按此程序修改。
 
 左上角不得不保留一个sizegrip，否则不能放缩
 
