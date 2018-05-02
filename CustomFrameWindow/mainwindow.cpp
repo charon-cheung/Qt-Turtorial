@@ -117,10 +117,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 
 void MainWindow::customEvent(QEvent *event)
 {
-    if(event->type()==MyEvent::t)
-    {
-        qDebug()<<"user event type"<<MyEvent::t;
-    }
+    return QMainWindow::customEvent(event);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -165,12 +162,6 @@ void MainWindow::on_max_clicked()
 void MainWindow::on_min_clicked()
 {
     this->setWindowState(Qt::WindowMinimized);
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-    MyEvent event(123);
-    QApplication::sendEvent(this,&event);
 }
 
 void MainWindow::on_close_clicked()

@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QPaintEvent>
-#include "myevent.h"
 #include <QResizeEvent>
 namespace Ui {
 class MainWindow;
@@ -37,7 +36,6 @@ private slots:
     void on_close_clicked();
     void on_max_clicked();
     void on_min_clicked();
-    void on_pushButton_clicked();
 };
 
 #endif // MAINWINDOW_H
