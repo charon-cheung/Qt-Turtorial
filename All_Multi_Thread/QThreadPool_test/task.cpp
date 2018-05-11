@@ -10,6 +10,8 @@ Task::Task(int id,QWidget* w):
 
 void Task::run()
 {
+    qDebug()<<"id: "<<m_id;
+#if 0
     QFile* file = new QFile("E:\qtgui.index");
     file->open(QIODevice::ReadOnly);
     QTextStream *stream = new QTextStream(file);
@@ -22,6 +24,7 @@ void Task::run()
 //        QMetaObject::invokeMethod(m_w,"appendText",Qt::AutoConnection,Q_ARG(QString,line));
         QThread::msleep(15);
     }
+#endif
 }
 
 Task::~Task()

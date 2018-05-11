@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QSizeGrip>
-
+#include <QThread>
 static QRect geo;
 static Qt::WindowStates state;
 static QSizeGrip *rdGrip;
@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent) :
     luGrip->installEventFilter(this);
     rdGrip->installEventFilter(this);
     ruGrip->installEventFilter(this);
+    QThread d;
+    d.exec()
 }
 
 MainWindow::~MainWindow()

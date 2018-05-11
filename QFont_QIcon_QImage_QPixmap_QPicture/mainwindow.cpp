@@ -53,7 +53,7 @@ void MainWindow::on_fontPicker_clicked()
 }
 
 QFont MainWindow::getFont()
-{
+{   emit toStr();
     QFont font;
     font.setPointSizeF(16.5);
     font.setFamily("Inconsolata");
