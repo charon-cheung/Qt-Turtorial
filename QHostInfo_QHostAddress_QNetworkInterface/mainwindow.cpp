@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QString hostName = QHostInfo::localHostName();      // 获得主机名
     QHostInfo info = QHostInfo::fromName(hostName);
+    // QHostAddress::LocalHost是127.0.0.1, 不是本机IP
     foreach(QHostAddress addr, info.addresses())     // 相当于 ipconfig /all
     {
         if(addr.protocol()==QAbstractSocket::IPv4Protocol)
@@ -31,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
         // 遍历所有网络接口，如果只需要IP，可用allAddresses
         foreach (QNetworkAddressEntry entry, interface.addressEntries())
         {
-            qDebug()<<"broadcast: "<<entry.broadcast().toString();
+            qDebug()<<QStringLiteral("广播地址: ")<<entry.broadcast().toString();
             qDebug()<<"netmask: "<<entry.netmask().toString();
             qDebug()<<"ip: "<<entry.ip().toString();
         }
